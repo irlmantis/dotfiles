@@ -1,0 +1,21 @@
+Install JDK 21 packaged
+Install JDK 8 archived
+
+set system to use Java 8
+
+JAVA_HOME="/usr/lib/jvm/jdk8u442-b06"
+export PATH="$PATH:$JAVA_HOME/bin"
+
+sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk8u442-b06/bin/java" 0
+sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk8u442-b06/bin/javac" 0
+sudo update-alternatives --set java /usr/lib/jvm/jdk8u442-b06/bin/java
+sudo update-alternatives --set javac /usr/lib/jvm/jdk8u442-b06/bin/javac
+
+update-alternatives --list java
+update-alternatives --list javac
+
+
+----------------
+configure jdtls to use Java 21 in the ftplugin/java.lua file:
+
+vim.uv.os_setenv("JAVA_HOME", "/usr/lib/jvm/jdk-21.0.6-oracle-x64")
